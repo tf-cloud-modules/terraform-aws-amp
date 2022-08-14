@@ -7,4 +7,4 @@ This document describes the current status of this project.
 | :---: | :--- | --- | 
 | ✔ | [Add workspace module]() ||
 | ✔ | [Add rule_group_namespaces]() ||
-| ❌ | [Add examples]() ||
+| ✔ | [Add examples]() ||
