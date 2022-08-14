@@ -2,6 +2,13 @@
 
 Terraform module which creates AWS Managed Service for Prometheus (AMP) resources.
 
+```hcl
+module "amp" {
+  source  = "tf-cloud-modules/amp/aws"
+  alias   = "test"
+}
+```
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
