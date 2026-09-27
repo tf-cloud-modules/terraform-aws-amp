@@ -8,6 +8,18 @@ variable "alias" {
   description = "The alias of the prometheus workspace."
 }
 
+variable "kms_key_arn" {
+  description = "The ARN of the KMS key to use for encrypting the workspace data."
+  type        = string
+  default     = null
+}
+
+variable "region" {
+  description = "Region where the resources will be managed. Defaults to the Region set in the provider configuration."
+  type        = string
+  default     = null
+}
+
 variable "tags" {
   description = "A map of tags to add to all resources."
   type        = map(string)
@@ -33,7 +45,7 @@ variable "alert_manager_definition" {
 }
 
 variable "rule_group_namespaces" {
-  description = "A map of one or more rule group namespace definitions."
+  description = "A map of one or more rule group namespace definitions. Each object supports `name`, `data`, and an optional `tags` map."
   type        = map(any)
   default     = {}
 }
