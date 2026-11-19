@@ -1,7 +1,10 @@
 resource "aws_prometheus_workspace" "this" {
   count = var.create ? 1 : 0
-  alias = var.alias
-  tags  = var.tags
+
+  alias       = var.alias
+  kms_key_arn = var.kms_key_arn
+  region      = var.region
+  tags        = var.tags
 }
 
 resource "aws_prometheus_alert_manager_definition" "this" {
@@ -9,6 +12,7 @@ resource "aws_prometheus_alert_manager_definition" "this" {
 
   workspace_id = aws_prometheus_workspace.this[0].id
   definition   = var.alert_manager_definition
+  region       = var.region
 }
 
 resource "aws_prometheus_rule_group_namespace" "this" {
@@ -17,4 +21,6 @@ resource "aws_prometheus_rule_group_namespace" "this" {
   name         = each.value.name
   workspace_id = aws_prometheus_workspace.this[0].id
   data         = each.value.data
+  region       = var.region
+  tags         = lookup(each.value, "tags", {})
 }
