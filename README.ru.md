@@ -30,9 +30,32 @@ module "amp" {
         EOT
     }
   }
+
+  # Scrapers require an existing EKS cluster (or a VPC source). If no destination
+  # is given, scraped metrics go to the workspace created by this module.
+  # scrapers = {
+  #   eks = {
+  #     alias = "eks-scraper"
+  #     source = {
+  #       eks = {
+  #         cluster_arn = "arn:aws:eks:us-east-1:123456789012:cluster/example"
+  #         subnet_ids  = ["subnet-0123456789abcdef0"]
+  #       }
+  #     }
+  #     scrape_configuration = <<-EOT
+  #       global:
+  #         scrape_interval: 30s
+  #       scrape_configs:
+  #         - job_name: kubernetes-pods
+  #           kubernetes_sd_configs:
+  #             - role: pod
+  #     EOT
+  #   }
+  # }
 }
 ```
 
+<!-- BEGIN_TF_DOCS -->
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -57,6 +80,7 @@ No modules.
 | ---- | ---- |
 | [aws_prometheus_alert_manager_definition.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/prometheus_alert_manager_definition) | resource |
 | [aws_prometheus_rule_group_namespace.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/prometheus_rule_group_namespace) | resource |
+| [aws_prometheus_scraper.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/prometheus_scraper) | resource |
 | [aws_prometheus_workspace.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/prometheus_workspace) | resource |
 
 ## Inputs
@@ -70,6 +94,7 @@ No modules.
 | <a name="input_kms_key_arn"></a> [kms\_key\_arn](#input\_kms\_key\_arn) | The ARN of the KMS key to use for encrypting the workspace data. | `string` | `null` | no |
 | <a name="input_region"></a> [region](#input\_region) | Region where the resources will be managed. Defaults to the Region set in the provider configuration. | `string` | `null` | no |
 | <a name="input_rule_group_namespaces"></a> [rule\_group\_namespaces](#input\_rule\_group\_namespaces) | A map of one or more rule group namespace definitions. Each object supports `name`, `data`, and an optional `tags` map. | `map(any)` | `{}` | no |
+| <a name="input_scrapers"></a> [scrapers](#input\_scrapers) | A map of one or more scraper definitions. Each object requires `scrape_configuration` and `source` (`eks` or `vpc`), and supports an optional `alias`, `destination` (`amp` or `cloudwatch`; defaults to the workspace created by this module), `exporter` (`opensearch`), `role_configuration`, `timeouts`, and a `tags` map. Typed as `any` so entries with different shapes (e.g. EKS and VPC sources) can be mixed in one map. | `any` | `{}` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources. | `map(string)` | `{}` | no |
 
 ## Outputs
@@ -81,5 +106,8 @@ No modules.
 | <a name="output_kms_key_arn"></a> [kms\_key\_arn](#output\_kms\_key\_arn) | The ARN of the KMS key used for encrypting the workspace data. |
 | <a name="output_prometheus_endpoint"></a> [prometheus\_endpoint](#output\_prometheus\_endpoint) | Prometheus endpoint for this workspace |
 | <a name="output_rule_group_namespace_arns"></a> [rule\_group\_namespace\_arns](#output\_rule\_group\_namespace\_arns) | Map of ARNs of the rule group namespaces, keyed the same as var.rule\_group\_namespaces. |
+| <a name="output_scraper_arns"></a> [scraper\_arns](#output\_scraper\_arns) | Map of ARNs of the scrapers, keyed the same as var.scrapers. |
+| <a name="output_scraper_ids"></a> [scraper\_ids](#output\_scraper\_ids) | Map of IDs of the scrapers, keyed the same as var.scrapers. |
 | <a name="output_tags_all"></a> [tags\_all](#output\_tags\_all) | A map of tags assigned to the resource. |
 <!-- END_TF_DOCS -->
+<!-- BEGIN_TF_DOCS -->
