@@ -27,3 +27,13 @@ output "rule_group_namespace_arns" {
   description = "Map of ARNs of the rule group namespaces, keyed the same as var.rule_group_namespaces."
   value       = { for k, v in aws_prometheus_rule_group_namespace.this : k => try(v.arn, "") }
 }
+
+output "scraper_arns" {
+  description = "Map of ARNs of the scrapers, keyed the same as var.scrapers."
+  value       = { for k, v in aws_prometheus_scraper.this : k => try(v.arn, "") }
+}
+
+output "scraper_ids" {
+  description = "Map of IDs of the scrapers, keyed the same as var.scrapers."
+  value       = { for k, v in aws_prometheus_scraper.this : k => try(v.id, "") }
+}

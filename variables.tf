@@ -49,3 +49,9 @@ variable "rule_group_namespaces" {
   type        = map(any)
   default     = {}
 }
+
+variable "scrapers" {
+  description = "A map of one or more scraper definitions. Each object requires `scrape_configuration` and `source` (`eks` or `vpc`), and supports an optional `alias`, `destination` (`amp` or `cloudwatch`; defaults to the workspace created by this module), `exporter` (`opensearch`), `role_configuration`, `timeouts`, and a `tags` map. Typed as `any` so entries with different shapes (e.g. EKS and VPC sources) can be mixed in one map."
+  type        = any
+  default     = {}
+}
