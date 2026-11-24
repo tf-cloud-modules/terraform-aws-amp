@@ -18,8 +18,8 @@ module "amp" {
           - name: test
             rules:
             - alert: PrometheusTargetMissing
-               expr: up == 0
-               for: 5m
+              expr: up == 0
+              for: 5m
         EOT
     }
   }
