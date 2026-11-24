@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `scrapers` input map for `aws_prometheus_scraper` resources: EKS and VPC sources, AMP or CloudWatch destinations (AMP defaults to the workspace created by this module), optional `exporter`, `role_configuration`, `timeouts`, and per-scraper `tags`.
+- `scraper_arns` and `scraper_ids` outputs.
+
 ## [2.0.0] - 2026-11-24
 
 ### Added

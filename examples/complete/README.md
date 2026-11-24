@@ -4,6 +4,7 @@ Configuration in this directory creates AWS Managed Service for Prometheus (AMP)
 
 - AWS AMP Workspace
 - AWS AMP Alertmanager
+- AWS AMP Scraper (commented out, requires an existing EKS cluster)
 
 ## Usage
 
