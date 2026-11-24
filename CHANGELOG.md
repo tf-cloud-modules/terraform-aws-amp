@@ -8,7 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- Raise `hashicorp/aws` provider constraint to `>= 6.73.0` (from `>= 3.74`).
+- **Breaking:** raise `hashicorp/aws` provider constraint to `>= 6.73.0` (from `>= 3.74`).
+
+### Fixed
+- Correct rule group namespace YAML indentation in the complete example and README usage snippets (AWS AMP rejected it with `ValidationException: Malformed rule group namespace`).
 
 ### Added
 - `kms_key_arn` input/output for `aws_prometheus_workspace` (customer-managed KMS key for workspace encryption, supported by the provider since v5.32.0).
