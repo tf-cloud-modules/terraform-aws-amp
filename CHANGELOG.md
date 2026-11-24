@@ -8,7 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- Raise `hashicorp/aws` provider constraint to `>= 6.73.0` (from `>= 3.74`).
+- **Breaking:** raise `hashicorp/aws` provider constraint to `>= 6.73.0` (from `>= 3.74`).
+
+### Fixed
+- Correct rule group namespace YAML indentation in the complete example and README usage snippets (AWS AMP rejected it with `ValidationException: Malformed rule group namespace`).
 
 ### Added
 - `scrapers` input map for `aws_prometheus_scraper` resources: EKS and VPC sources, AMP or CloudWatch destinations (AMP defaults to the workspace created by this module), optional `exporter`, `role_configuration`, `timeouts`, and per-scraper `tags`.
