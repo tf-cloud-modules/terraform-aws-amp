@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-11-24
+
 ### Added
 - `scrapers` input map for `aws_prometheus_scraper` resources: EKS and VPC sources, AMP or CloudWatch destinations (AMP defaults to the workspace created by this module), optional `exporter`, `role_configuration`, `timeouts`, and per-scraper `tags`.
 - `scraper_arns` and `scraper_ids` outputs.
@@ -45,7 +47,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release.
 
-[Unreleased]: https://github.com/tf-cloud-modules/terraform-aws-amp/compare/2.0.0...HEAD
+[Unreleased]: https://github.com/tf-cloud-modules/terraform-aws-amp/compare/2.1.0...HEAD
+[2.1.0]: https://github.com/tf-cloud-modules/terraform-aws-amp/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/tf-cloud-modules/terraform-aws-amp/compare/1.0.0...2.0.0
 [1.0.0]: https://github.com/tf-cloud-modules/terraform-aws-amp/compare/0.2.0...1.0.0
 [0.2.0]: https://github.com/tf-cloud-modules/terraform-aws-amp/compare/0.1.1...0.2.0
