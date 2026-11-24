@@ -56,7 +56,6 @@ module "amp" {
 ```
 
 <!-- BEGIN_TF_DOCS -->
-<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -110,4 +109,3 @@ No modules.
 | <a name="output_scraper_ids"></a> [scraper\_ids](#output\_scraper\_ids) | Map of IDs of the scrapers, keyed the same as var.scrapers. |
 | <a name="output_tags_all"></a> [tags\_all](#output\_tags\_all) | A map of tags assigned to the resource. |
 <!-- END_TF_DOCS -->
-<!-- BEGIN_TF_DOCS -->
