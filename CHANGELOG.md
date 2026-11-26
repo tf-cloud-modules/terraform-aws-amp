@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Pin the `hashicorp/aws` provider to the tested version `6.74.0`.
+
 ## [2.1.1] - 2026-11-26
 
 ### Changed
