@@ -1,5 +1,5 @@
 variable "create" {
-  description = "Controls if resources should be created."
+  description = "Controls whether any resources in this module are created."
   type        = bool
   default     = true
 }
