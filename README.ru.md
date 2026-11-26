@@ -61,7 +61,7 @@ module "amp" {
 | Name | Version |
 | ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 6.73.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 6.73.0 |
 
 ## Providers
 
@@ -88,7 +88,7 @@ No modules.
 | ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_alert_manager_definition"></a> [alert\_manager\_definition](#input\_alert\_manager\_definition) | The alert manager definition that you want to be applied. | `string` | `"alertmanager_config: |\n  route:\n    receiver: 'default'\n  receivers:\n    - name: 'default'\n"` | no |
 | <a name="input_alias"></a> [alias](#input\_alias) | The alias of the prometheus workspace. | `any` | n/a | yes |
-| <a name="input_create"></a> [create](#input\_create) | Controls if resources should be created. | `bool` | `true` | no |
+| <a name="input_create"></a> [create](#input\_create) | Controls whether any resources in this module are created. | `bool` | `true` | no |
 | <a name="input_create_alert_manager"></a> [create\_alert\_manager](#input\_create\_alert\_manager) | Determines whether alert\_manager resources will be created. | `bool` | `false` | no |
 | <a name="input_kms_key_arn"></a> [kms\_key\_arn](#input\_kms\_key\_arn) | The ARN of the KMS key to use for encrypting the workspace data. | `string` | `null` | no |
 | <a name="input_region"></a> [region](#input\_region) | Region where the resources will be managed. Defaults to the Region set in the provider configuration. | `string` | `null` | no |

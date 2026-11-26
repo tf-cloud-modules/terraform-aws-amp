@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Make `create = false` consistently disable Alertmanager and rule group namespace resources, avoiding references to a workspace that is not created.
+
+### Changed
+- Pin the `hashicorp/aws` provider to the tested version `6.73.0`.
+
 ## [2.1.0] - 2026-11-24
 
 ### Added
